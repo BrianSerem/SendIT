@@ -101,7 +101,7 @@ fieldset form input, fieldset form select, fieldset form textarea {
 fieldset form input.formbutton {
 border:none;
     background-color: #80B763;
-    border-radius: 5px;
+ 
     color: #FFFFFF;
     display: inline-block;
     font-weight: bold;
@@ -188,12 +188,6 @@ header h2 {
 }
 
 
-/** body **/
-section#body {
-	padding: 0;
-	background:rgba(0,4,0,0.4); 
-	border-radius: 25px;
-}
 
 
 /** content+sidebar styles **/
@@ -252,8 +246,8 @@ nav#mainnav li a {
 
 article {
 
-    padding: 20px 0px 50px;
-	font-size: 1.2em;
+    padding: 0px 0px 0px;
+	font-size: 1.0em;
      border-bottom: 1px solid #eee;
  }
 
@@ -326,9 +320,8 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 
 	.column-left, .column-right { margin:0px; }
 
-	header h1, header h2, nav#mainnav li a { text-align:center; }
 	
-	section#content, aside#sidebar { position: relative; float: none; width: auto; margin-left: 0; }
+	
 
 	
 }

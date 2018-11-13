@@ -8,7 +8,8 @@
     <link href="images/senditlogo/senditfav.png" rel="icon" type="image/png">
     <link href="http://fonts.googleapis.com/css?family=Varela" rel="stylesheet" />
     <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/forms.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 
 
@@ -32,62 +33,21 @@
                 </div>
             </div>
         </div>
-        <div id="bodycontainer">
-            <div class="cont">
-                <div class="form sign-in">
-                    <h2>Welcome back,</h2>
-                    <label>
-                        <span>Email</span>
-                        <input type="email" />
-                    </label>
-                    <label>
-                        <span>Password</span>
-                        <input type="password" />
-                    </label>
-                    <p class="forgot-pass">Forgot password?</p>
-                    <a href="userdashboard.html"> <button type="button" class="submit">Sign In</button></a>
-
-                </div>
-                <div class="sub-cont">
-                    <div class="img">
-                        <div class="img__text m--up">
-                            <h2>New here?</h2>
-                            <p>New to SENDIT? Sign up and start sending parcels</p>
-                        </div>
-                        <div class="img__text m--in">
-                            <h2>Existing User?</h2>
-                            <p>If you already have an account,sign in to view your dashboard</p>
-                        </div>
-                        <div class="img__btn">
-                            <span class="m--up">Sign Up</span>
-                            <span class="m--in">Sign In</span>
-                        </div>
-                    </div>
-                    <div class="form sign-up">
-                        <h2>Send your first parcel after signing up!!</h2>
-                        <label>
-                            <span>Name</span>
-                            <input type="text" />
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" />
-                        </label>
-                        <label>
-                            <span>Password</span>
-                            <input type="password" />
-                        </label>
-                        <button type="button" class="submit">Sign Up</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+<div class="login">
+  <h1>Login</h1>
+    <form method="post">
+      <input type="text" name="u" placeholder="Username" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+    <a href="signup.html">Your first time? Sigun up here</a>
+</div>
     <div id ="footer">
 
 <div id="copyright" class="container">
     <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p>
+</div>
 </div>
 </div>
 </body>
