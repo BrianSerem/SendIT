@@ -25,7 +25,7 @@
                 <div id="menu">
                     <ul>
                         <li><a href="index.html" accesskey="1" title="">HOME</a></li>
-                        <li class="current_page_item"><a href="login.html" accesskey="2" title="">Log In</a></li>
+                        <li class="current_page_item"><a href="login.html" accesskey="2" title="">Log In</a><li>
                         <li ><a href="signup.html" accesskey="3" title="">Register</a></li>
                         <li><a href="about.html" accesskey="4" title="">About Us</a></li>
                         <li><a href="admindashboard.html" accesskey="5" title="">Admin Dashboard</a></li>
@@ -37,12 +37,43 @@
 <div class="login">
   <h1>Login</h1>
     <form method="post">
-      <input type="text" name="u" placeholder="Username" required="required" />
-        <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <input type="text" name="u" placeholder="Username" required="required" id = "username" />
+        <input type="password" name="p" id = "password" placeholder="Password" required="required" />
+        <button type="submit" onclick="logIn()"  class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
     <a href="signup.html">Your first time? Sigun up here</a>
 </div>
+<script>
+    function logIn() {
+        // getting the form values
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let login_url = "https://sendit123.herokuapp.com/api/v2/auth/login";
+        let login_data = {
+            username : username,
+            password : password
+        }
+        // sending data to our end point
+        fetch(login_url, {
+            method: 'POST',
+            body: JSON.stringify(login_data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(response => {
+            if(response.status === "success"){
+                window.localStorage.setItem('token' , response.data.token)
+                window.localStorage.setItem('name' , response.data.name)
+                window.location.href='userdashboard.html';
+            } else {
+                alert(response.message)
+            }
+        })
+        .catch(error => alert("OOPS try again"));
+}
+</script>
     <div id ="footer">
 
 <div id="copyright" class="container">
@@ -51,10 +82,4 @@
 </div>
 </div>
 </body>
-
-
-
-
-
-    <script src="js/index.js"></script>
-    </html>
+</html>
