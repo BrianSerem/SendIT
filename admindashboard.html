@@ -6,7 +6,8 @@
     <title>AdMIN Dashboard</title>
     <link rel="stylesheet" href="css/dashstyle.css" type="text/css" />
     <link rel="stylesheet" href="css/default.css" type="text/css" />
-    <link rel="stylesheet" href="css/tablestyle.css" type="text/css" />
+    <link href="images/senditlogo/senditfav.png" rel="icon" type="image/png">
+    <link rel="stylesheet" href="css/tabllestyle.css" type="text/css" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
@@ -19,10 +20,10 @@
         <div id="menu">
             <ul>
                 <li><a href="index.html" accesskey="1" title="">HOME</a></li>
-                <li><a href="login.html" accesskey="2" title="">Log In</a></li>
-                <li><a href="signup.html" accesskey="3" title="">Register</a></li>
                 <li><a href="about.html" accesskey="4" title="">About Us</a></li>
-                <li class ="current_page_item"><a href="admindashboard.html" accesskey="5" title="">Admin Dashboard</a></li>
+                <li><a href="about.html" accesskey="4" title="">LOG OUT</a></li>
+                <li class="current_page_item"><a id="username" href="profile.html" accesskey="4" title="">ADMIN</a></li>
+                <li><a href="profile.html"><img src="images/user.png"></a></li>
             </ul>
         </div>
     </div>
@@ -37,117 +38,26 @@
                 <h2>Dashboard</h2>
 
             </header>
-
-            <nav id="mainnav">
-                <ul>
-                    <li><a href="userdashboard.html">All PARCELS</a></li>
-                    <li><a href="delivered.html">DELIVERED PARCELS</a></li>
-                    <li><a href="pending.html">PENDIND PARCELS</a></li>
-                    <li><a href="pricing.html">PRICING</a></li>
-                    <li><a href="support.html">SUPPORT</a></li>
-                </ul>
+<nav id="mainnav">
+               <ul>
+                  <li><a id="allparcels" href="#">All PARCELS</a></li>
+                  <li><a href="#" onclick="getUserParcsels()">DELIVERED PARCELS</a></li>
+                  <li><a href="#" onclick="getUserParcels()">PENDIND PARCELS</a></li>
+                  <li><a id="movingparcels" href="#">IN TRANSIT PARCELS</a></li>
+                  <li><a href="#" id="allusers" >ALL USERS</a></li>
+                  <li><a href="support.html">MESSAGES</a></li>
+               </ul>
             </nav>
-
-
-
-        </aside>
-        <section id="content" class="column-right">
-
-            <article>
-
-<div id="Table">
-<table class="container">
-  <thead>
-     <tr>
-      <th><h1>#Id</h1></th>
-      <th><h1>Name</h1></th>
-      <th><h1>Destination</h1></th>
-      <th><h1>Date Sent</h1></th>
-      <th><h1>Status</h1></th>
-      <th><h1>Receipient</h1></th>
-      <th><h1>CURRENT LOCATION</h1></th>
-      <th><h1>Action</h1></th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#12345A</td>
-      <td>Wrapped Gift</td>
-      <td>Nakuru</td>
-      <td>2/11/2018</td>
-      <td>Pending</td>
-      <td>Brian Serem</td>
-      <td>KIAMBU GPO</td>
-      <td><p><input type="submit" name="Change address" class="formbutton" value="Change Location" /></p>
-       <p><input type="submit" name="cancel" class="formbutton" value="Change Status" /></p></td>
-    </tr>
-    <tr>
-      <td>#12345A</td>
-      <td>Wrapped Gift</td>
-      <td>Nakuru</td>
-      <td>2/11/2018</td>
-      <td>Pending</td>
-      <td>Brian Serem</td>
-      <td>KIAMBU GPO</td>
-      <td><p><input type="submit" name="Change address" class="formbutton" value="Change Location" /></p>
-       <p><input type="submit" name="cancel" class="formbutton" value="Change Status" /></p></td>
-    </tr>
-    <tr>
-       <td>#12345A</td>
-      <td>Wrapped Gift</td>
-      <td>Nakuru</td>
-      <td>2/11/2018</td>
-      <td>Pending</td>
-      <td>Brian Serem</td>
-      <td>KIAMBU GPO</td>
-      <td><p><input type="submit" name="Change address" class="formbutton" value="Change Location" /></p>
-       <p><input type="submit" name="cancel" class="formbutton" value="Change Status" /></p></td>
-    </tr>
-    <tr>
-       <td>#12345A</td>
-      <td>Wrapped Gift</td>
-      <td>Nakuru</td>
-      <td>2/11/2018</td>
-      <td>Pending</td>
-      <td>Brian Serem</td>
-      <td>KIAMBU GPO</td>
-      <td><p><input type="submit" name="Change address" class="formbutton" value="Change Location" /></p>
-       <p><input type="submit" name="cancel" class="formbutton" value="Change Status" /></p></td>
-    </tr>
-    <tr>
-       <td>#12345A</td>
-      <td>Wrapped Gift</td>
-      <td>Nakuru</td>
-      <td>2/11/2018</td>
-      <td>Pending</td>
-      <td>Brian Serem</td>
-      <td>KIAMBU GPO</td>
-      <td><p><input type="submit" name="Change address" class="formbutton" value="Change Location" /></p>
-       <p><input type="submit" name="cancel" class="formbutton" value="Change Status" /></p></td>
-    
-    </tr>
-  </tbody>
-</table>
-</span>
-</div>
-
-
-            </article>
-
-            
-
-            <footer class="clear">
-                
-            </footer>
-
-        </section>
-
-        <div class="clear"></div>
-
-    </section>
-
-
+         </aside>
+       </section>
+         <section id="content" class="column-right">
+        <div id="Table">
+            <table class="container">
+                <div id="displayTable"></div>
+            </table>
+            </span>
+            </div>
+     <script type="text/javascript" src="js/user.js"></script>
 </body>
 
 </html>

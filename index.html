@@ -21,11 +21,11 @@
         </div>
         <div id="menu">
             <ul>
-                <li class="current_page_item"><a href="#" accesskey="1" title="">HOME</a></li>
-                <li><a href="login.html" accesskey="2" title="">Log In</a></li>
-                <li><a href="signup.html" accesskey="3" title="">Register</a></li>
-                <li><a href="about.html" accesskey="4" title="">About Us</a></li>
-                <li><a href="admindashboard.html" accesskey="5" title="">Admin Dashboard</a></li>
+                <li class="current_page_item"><a id="nav_home" href="#" accesskey="1" title="">HOME</a></li>
+                <li><a id="nav_login" href="login.html" accesskey="2" title="">Log In</a></li>
+                <li><a id="nav_signup" href="signup.html" accesskey="3" title="">Register</a></li>
+                <li><a id="nav_about" href="about.html" accesskey="4" title="">About Us</a></li>
+                <li><a id="nav_admindashboard" href="admindashboard.html" accesskey="5" title="">Admin Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <h2>SEND PARCLES ACROSS THE COUNTRY</h2>
                 <span class="byline">The quickest and the most afforadable way of sending your parcels</span> </div>
             <ul class="actions">
-                <li><a href="login.html" class="button">SEND A PARCEL</a></li>
+                <li><a id="yourdashboard" href="#" class="button">SEND A PARCEL</a></li>
             </ul>
         </div>
     </div>
@@ -48,24 +48,25 @@
             <div class="boxA">
                 <div class="box"> <span class="fa fa-cloud-download"></span>
                     <h2>STEP 1</h2>
-                    <p>Create an account in under 2 minutes if you have none, login in if you are a member of SEND-IT. You can access your dashboard</p>
+                    <p class="stepdes">Create an account in under 2 minutes if you have none, login in if you are a member of SEND-IT. You can access your dashboard</p>
                 </div>
             </div>
             <div class="boxB">
                 <div class="box"> <span class="fa fa-cogs"></span>
                     <h2>STEP 2</h2>
-                    <p>On your dashboard, click 'create a new parcel", enter the details of the parcel and choose a suitable pricing option</p>
+                    <p class="stepdes">On your dashboard, click 'create a new parcel", enter the details of the parcel and choose a suitable pricing option</p>
                 </div>
             </div>
             <div class="boxC">
                 <div class="box"> <span class="fa fa-user"></span>
                     <h2>STEP 3</h2>
-                    <p>Click send parcel and it will be on its way towards the specified destination, keep tracking your parcel on your dashboard</p>
+                    <p class="stepdes">Click send parcel and it will be on its way towards the specified destination, keep tracking your parcel on your dashboard</p>
                 </div>
             </div>
         </div>
+        
         <ul class="actions">
-            <li><a href="login.html" class="button">YOUR DASHBOARD</a></li>
+            <li><a id="yourdashboard1" href="#" class="button">YOUR DASHBOARD</a></li>
         </ul>
     </div>
     <div id="featured">
@@ -81,11 +82,40 @@
     </div>
     
 </div>
+
 <div id ="footer">
 
 <div id="copyright" class="container">
     <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p>
 </div>
 </div>
+<script>
+    console.log(localStorage.loggedin);
+
+    document.getElementById("yourdashboard").addEventListener("click",referUser);
+    document.getElementById("yourdashboard1").addEventListener("click",referUser1);
+
+    function referUser(){
+    if (localStorage.loggedin === true){
+        window.location.href = 'userdashboard.html';
+        console.log(localStorage.loggedin);
+    }
+    else{
+        window.location.href = 'userdashboard.html';
+        console.log(localStorage.loggedin);
+
+    }
+}
+function referUser1(){
+    if (localStorage.loggedin === true){
+        window.location.href = "userdashboard.html";
+    }
+    else{
+        window.location.href = "login.html";
+
+    }
+}
+</script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

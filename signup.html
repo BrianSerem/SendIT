@@ -12,14 +12,10 @@
      <link href="css/forms.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
-
-
-
-
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapper1">
         <div id="header-wrapper">
             <div id="header" class="container">
                 <div id="logo">
@@ -41,57 +37,20 @@
     <form method="post">
     <input type="text" name="username" placeholder="username" required="required" id="username"/>
     <input type="text" name="email" placeholder="email" required="required"  id="email" />
-    <input type="number" name="phone" placeholder="pnumber" required="required" />
-    <input type="password" name="p" placeholder="Password" required="required" />
-    <button type="submit" class="btn btn-primary btn-block btn-large">SIGN up.</button>
+    <input type="password" name="p" placeholder="Password" required="required" id="password" />
+    <input type="password" name="p" placeholder="Password" required="required" id="password1" />
+    <button type="submit" class="btn btn-primary btn-block btn-large" id="signup">SIGN up.</button>
     </form>
+    <div id="response">Enter your details to signup</div>
     <a href="login.html">Got an account?</a>
 </div>
-    <div id ="footer">
+    <!-- <div id ="footer">
 
 <div id="copyright" class="container">
   <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p>
 </div>
-</div>
+</div> -->
 </body>
 
-<script>
-    function signUp() {
-        // getting the form values
-        let email = document.getElementById("email").value;
-        let username = document.getElementById("username").value;
-        let phonenumber = document.getElementById("pnumber").value;
-        let password = document.getElementById("password").value;
-        let signup_url = "https://sendit123.herokuapp.com/api/v2/auth/signup";
-        // Checking if the password and confirmation password is same
-        if(password != password1){
-            alert("password does not match")
-        }
-        let signup_data = {
-            email : email,
-            username : username,
-            phone : pnumber,
-            password : password,
-    
-        }
-        // sending data to our end point
-        fetch(signup_url, {
-            method: 'POST',
-            body: JSON.stringify(signup_data),
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(response => {
-            if(response.status === "added"){
-                alert("successfully added")
-                window.location.href='signin.html';
-            } else {
-                alert(response.message)
-            }
-        })
-        .catch(error => alert("OOPS try again"));
-}
-</script>
+<script type="text/javascript" src="js/signup.js"></script>
 </html>
