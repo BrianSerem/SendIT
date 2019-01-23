@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapper1">
         <div id="header-wrapper">
             <div id="header" class="container">
                 <div id="logo">
@@ -41,6 +41,7 @@
         <input type="password" name="p" id = "password" placeholder="Password" required="required" />
         <button type="submit" onclick="logIn()"  class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
+    <div id="response">Enter your username and password to signin </div>
     <a href="signup.html">Your first time? Sigun up here</a>
 </div>
 <script>
@@ -62,22 +63,22 @@
             }
         })
         .then(res => res.json())
-        .then(response => {
-            if(response.status === "success"){
+        .then(response => { document.getElementById("response").innerHTML = (response.message)
+            /*if(response.status === "success"){
                 window.localStorage.setItem('token' , response.data.token)
                 window.localStorage.setItem('name' , response.data.name)
                 window.location.href='userdashboard.html';
             } else {
-                alert(response.message)
-            }
+                document.getElementById("response").innerHTML = (response.message)
+            }*/
         })
-        .catch(error => alert("OOPS try again"));
+        .catch(error => alert("Sorry, We may be having a problem establishing connection"));
 }
 </script>
     <div id ="footer">
 
-<div id="copyright" class="container">
-    <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p>
+<!-- <div id="copyright1">
+    <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p> -->
 </div>
 </div>
 </div>
