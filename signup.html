@@ -12,14 +12,10 @@
      <link href="css/forms.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
-
-
-
-
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapper1">
         <div id="header-wrapper">
             <div id="header" class="container">
                 <div id="logo">
@@ -39,26 +35,61 @@
         <div class="login">
   <h1>SIGN up For SENDIT</h1>
     <form method="post">
-    <input type="text" name="fname" placeholder="First Name" required="required" />
-     <input type="text" name="lname" placeholder="Lst Name" required="required" />
-      <input type="text" name="username" placeholder="Username" required="required" />
-       <input type="text" name="u" placeholder="Username" required="required" />
-    <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">SIGN up.</button>
+    <input type="text" name="username" placeholder="username" required="required" id="username"/>
+    <input type="text" name="email" placeholder="email" required="required"  id="email" />
+    <input type="number" name="phone" placeholder="pnumber" required="required" id="phone" />
+    <input type="password" name="p" placeholder="Password" required="required" id="password" />
+    <input type="password" name="p" placeholder="Password" required="required" id="password1" />
+    <button type="submit" class="btn btn-primary btn-block btn-large" onclick="signUp()">SIGN up.</button>
     </form>
     <a href="login.html">Got an account?</a>
 </div>
-    <div id ="footer">
+    <!-- <div id ="footer">
 
 <div id="copyright" class="container">
   <p>&copy; Untitled. All rights reserved.| <a href="index.html">SEND-IT</a>.</p>
 </div>
-</div>
+</div> -->
 </body>
 
-
-
-
-
-    <script src="js/index.js"></script>
-    </html>
+<script>
+    function signUp() {
+        // getting the form values
+        let email = document.getElementById("email").value;
+        let username = document.getElementById("username").value;
+        let phonenumber = document.getElementById("phone").value;
+        let password = document.getElementById("password").value;
+        let password1 = document.getElementById("password1").value;
+        let signup_url = "https://sendit123.herokuapp.com/api/v2/auth/signup";
+        // Checking if the password and confirmation password is same
+        if(password != password1){
+            alert("password does not match")
+        }
+        let signup_data = {
+            email : email,
+            username : username,
+            phone : phone,
+            password : password,
+    
+        }
+        // sending data to our end point
+        fetch(signup_url, {
+            method: 'POST',
+            body: JSON.stringify(signup_data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => { console.log(data)
+           /* if(response.status === "added"){
+                alert("successfully added")
+                window.location.href='login.html';
+            } else {
+                alert(response.message)
+            }*/
+        })
+        .catch(error => alert("OOPS try again"));
+}
+</script>
+</html>
