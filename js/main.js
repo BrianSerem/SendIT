@@ -11,7 +11,7 @@ window.onload=function(){
 function logOut(e){
 	e.preventDefault();
 
-	let logouturl = "http://127.0.0.1:5000/api/v2/auth/logout";
+	let logouturl = "https://sendit123.herokuapp.com/api/v2/auth/logout";
 	fetch(logouturl,{
 		method : "POST",
 		headers : {

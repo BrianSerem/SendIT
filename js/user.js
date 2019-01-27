@@ -46,7 +46,7 @@ function jsonToTable(data){
 }
 function getAllUsers(){
 
-	let getalldataurl = "http://127.0.0.1:5000/api/v2/users";
+	let getalldataurl = "https://sendit123.herokuapp.com/api/v2/users";
 
 	fetch(getalldataurl, {
 		method : "GET",
@@ -73,7 +73,7 @@ function getAllUsers(){
             }
 
    function getAllParcels(){
-   	let getallparcelsurl = "http://127.0.0.1:5000/api/v2/parcels"
+   	let getallparcelsurl = "https://sendit123.herokuapp.com/api/v2/parcels"
 
    	fetch(getallparcelsurl,{
    		method : "GET",
@@ -97,7 +97,7 @@ function getAllUsers(){
 
   let statusdata = {status : status}
   
-  let getspecificparclesurl = "http://127.0.0.1:5000/api/v2/parcels/status";
+  let getspecificparclesurl = "https://sendit123.herokuapp.com/api/v2/parcels/status";
   fetch(getspecificparclesurl,{
     method: "POST",
     body: JSON.stringify(statusdata),
