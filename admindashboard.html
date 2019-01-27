@@ -22,9 +22,9 @@
                 <li><a href="index.html" accesskey="1" title="">HOME</a></li>
                 <li><a href="about.html" accesskey="4" title="">About Us</a></li>
                 <li><a href="about.html" accesskey="4" title="">LOG OUT</a></li>
-                <li class="current_page_item"><a id="username" href="profile.html" accesskey="4" title="">ADMIN</a></li>
+                <li class="current_page_item"><a id="username" href="userdashboard.html" accesskey="4" title="">ADMIN</a></li>
 
-                <li><a href="profile.html"><img src="images/user.png"></a></li>
+                <li><a href="userdashboard.html"><img src="images/user.png"></a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <aside id="sidebar" class="column-left">
 
             <header>
-                <h1><a href="index.html">ADMIN DASHBOARD</a></h1>
+                <h1><a href="admindashboard.html">ADMIN DASHBOARD</a></h1>
 
                 <h2>Dashboard</h2>
 
@@ -43,7 +43,7 @@
                <ul>
 
                   <li><a id="allparcels" href="#">All PARCELS</a></li>
-                  <li><a href="#" onclick="getUserParcsels()">DELIVERED PARCELS</a></li>
+                  <li><a id="deliveredparcels" href="#">DELIVERED PARCELS</a></li>
                   <li><a href="#" onclick="getUserParcels()">PENDIND PARCELS</a></li>
                   <li><a id="movingparcels" href="#">IN TRANSIT PARCELS</a></li>
                   <li><a href="#" id="allusers" >ALL USERS</a></li>
@@ -53,8 +53,24 @@
             </nav>
          </aside>
        </section>
-         <section id="content" class="column-right">
-
+      
+        <div id="banner-dashboard">
+        <div class="container">
+            <div class="title">
+                <h2>SEND PARCLES ACROSS THE COUNTRY</h2>
+                <span class="byline">The quickest and the most afforadable way of sending your parcels</span> </div>
+            <ul class="actions">
+                <li><a id="yourdashboard" href="#" class="button">SEND A PARCEL</a></li>
+            </ul>
+        </div>
+    </div>
+        <div id="banner-dashboard">
+        <div class="container">
+            <div class="title">
+                <span class="byline">The quickest and the most afforadable way of sending your parcels</span> </div>
+        </div>
+    </div>
+       <section id="content" class="column-right">
         <div id="Table">
             <table class="container">
                 <div id="displayTable"></div>

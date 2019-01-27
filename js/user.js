@@ -1,6 +1,10 @@
 document.getElementById("allusers").addEventListener("click", getAllUsers);
 document.getElementById("allparcels").addEventListener("click", getAllParcels);
+document.getElementById("deliveredparcels").addEventListener("click", getDeliveredParcels);
+
+
 document.getElementById("username").innerHTML = localStorage.name;
+
 function jsonToTable(data){
 	var col = [];
                             for (var i = 0; i < data.length; i++) {
@@ -88,3 +92,34 @@ function getAllUsers(){
    		}
    	})
    }
+ 
+ function getSpecificParcels(status){
+
+  let statusdata = {status : status}
+  
+  let getspecificparclesurl = "https://sendit123.herokuapp.com/api/v2/parcels/status";
+  fetch(getspecificparclesurl,{
+    method: "POST",
+    body: JSON.stringify(statusdata),
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization':'Bearer '+localStorage.token
+    }
+  })
+  .then(res => res.json())
+  .then(response => {
+    if(response.status === 'success'){
+      let specificparcels = response.message;
+      jsonToTable(specificparcels);
+    }else{
+      
+      document.getElementById("Table").innerHTML = "HAAHAHAHHAHAHAHAHAHA NO ORDERS FOUND!!!!!!!!!!!"
+    }
+  })
+
+
+ }
+ function getDeliveredParcels(e){
+  e.preventDefault();
+  getSpecificParcels("delivered")
+ }
