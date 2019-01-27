@@ -21,13 +21,13 @@
                 </div>
                 <div id="menu">
                     <ul>
-                        <li><a href="index.html" accesskey="1" title="">HOME</a></li>
-                        <li class="current_page_item"><a href="createparcel.html" accesskey="2" title="">CREATE</a><li>
-                        <li><a href="about.html" accesskey="4" title="">About Us</a></li>
-                        <li><a href="userdashboard.html" accesskey="5" title="">Dashboard</a></li>
-                        <li><a href="about.html" accesskey="4" title="">LOG OUT</a></li>
-                        <li><a href="profile.html" accesskey="4" title="">username</a></li>
-                        <li><a href="profile.html"><img src="images/user.png"></a></li>
+                    <li><a id="nav_home" href="index.html" accesskey="1" title="">HOME</a></li>
+                    <li class="current_page_item"><a id="nav_create" href="profile.html" accesskey="4" title="">CREATE</a></li>
+                  <li><a id="nav_home" href="about.html" accesskey="4" title="">About Us</a></li>
+                  <li><a id="logout" href="#" accesskey="4" title="">LOG OUT</a></li>
+                  <li class="current_page_item"><a id="username1" href="profile.html" accesskey="4" title=""></a></li>
+
+                  <li><a id="nav_profile" href="profile.html"><img src="images/user.png"></a></l
                     </ul>
                 </div>
             </div>
@@ -47,8 +47,9 @@
                 </div>
             </div>
             <div class="boxC">
-                <div class="box"> <span class=""></span>
-                    <h2>3.send!!!</h2>
+              <div class="box"> <span class=""></span>
+                    <h2>3.SEND!!!</h2>
+
                     <p>Click SEND PARCEL and your parcel will be on its way.</p>
                 </div>
             </div>
@@ -60,46 +61,18 @@
         <input type="number" name="p"  placeholder="weight" required="required" id = "weight" />
         <input type="text" name="u" placeholder="Origin" required="required" id = "origin" />
         <input type="text" name="u" placeholder="Destination" required="required" id = "destination" />
-        <button type="submit" onclick="createParcel()"  class="btn btn-primary btn-block btn-large">SEND PARCEL.</button>
+        <button id="createparcel" type="submit"   class="btn btn-primary btn-block btn-large">SEND PARCEL.</button>
+
     </form>
     <div id="response"></div>
   
-</div>
+          </div>
+<script>
+        document.getElementById("username1").innerHTML = localStorage.name
+</script>
 
-  <script>
-    function createParcel(){
-
-      let description = document.getElementById("description").value;
-      let weight = document.getElementById("weight").value;
-      let origin = document.getElementById("origin").value;
-      let destination = document.getElementById("destination").value;
-      let createparcel_url = "https://sendit123.herokuapp.com/api/v2/parcels";
-      let parcel_data = {
-            name : description,
-            weight : weight,
-            origin : origin,
-            destination : destination
-        }
-    fetch(createparcel_url, {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + localStorage.token
-    },
-    method: "POST",
-    body: JSON.stringify(parcel_data)
-  })
-    .then(resp => {
-      return resp.json();
-    })
-    .then(data => {
-      window.location.href='userdashboard.html'
-      console.log(data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-  </script>
+  <script type="text/javascript" src="js/order.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
   
 </body>
 

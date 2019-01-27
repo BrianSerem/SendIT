@@ -22,7 +22,8 @@
                 <li><a href="index.html" accesskey="1" title="">HOME</a></li>
                 <li><a href="about.html" accesskey="4" title="">About Us</a></li>
                 <li><a href="about.html" accesskey="4" title="">LOG OUT</a></li>
-                <li class="current_page_item"><a href="profile.html" accesskey="4" title="">ADMIN</a></li>
+                <li class="current_page_item"><a id="username" href="profile.html" accesskey="4" title="">ADMIN</a></li>
+
                 <li><a href="profile.html"><img src="images/user.png"></a></li>
             </ul>
         </div>
@@ -40,89 +41,28 @@
             </header>
 <nav id="mainnav">
                <ul>
-                  <li><a href="#" onclick="getUserParcels()">All PARCELS</a></li>
+
+                  <li><a id="allparcels" href="#">All PARCELS</a></li>
                   <li><a href="#" onclick="getUserParcsels()">DELIVERED PARCELS</a></li>
                   <li><a href="#" onclick="getUserParcels()">PENDIND PARCELS</a></li>
-                  <li><a href="#" onclick="getUserParcels()">PRICING</a></li>
-                  <li><a href="support.html">SUPPORT</a></li>
+                  <li><a id="movingparcels" href="#">IN TRANSIT PARCELS</a></li>
+                  <li><a href="#" id="allusers" >ALL USERS</a></li>
+                  <li><a href="support.html">MESSAGES</a></li>
+
                </ul>
             </nav>
          </aside>
        </section>
          <section id="content" class="column-right">
-            <div id="Table">
-               <table class="container">
+
+        <div id="Table">
+            <table class="container">
                 <div id="displayTable"></div>
-               </table>
-               </span>
+            </table>
+            </span>
             </div>
-      <script>
-         function getUserParcels() {
-               var myBooks = [
-                   {
-                       "Book ID": "1",
-                       "Book Name": "Computer Architecture",
-                       "Category": "Computers",
-                       "Price": "125.60",
-                       "Name" : "brian"
-                   },
-                   {
-                       "Book ID": "2",
-                       "Book Name": "Asp.Net 4 Blue Book",
-                       "Category": "Programming",
-                       "Price": "56.00",
-                       "Name" : "Emmanuel"
-                   },
-                   {
-                       "Book ID": "3",
-                       "Book Name": "Popular Science",
-                       "Category": "Science",
-                       "Price": "210.40",
-                       "Name": "Alvin"
-                   }
-               ]
-         
-               // EXTRACT VALUE FOR HTML HEADER. 
-               // ('Book ID', 'Book Name', 'Category' and 'Price')
-               var col = [];
-               for (var i = 0; i < myBooks.length; i++) {
-                   for (var key in myBooks[i]) {
-                       if (col.indexOf(key) === -1) {
-                           col.push(key);
-                       }
-                   }
-               }
-         
-               // CREATE DYNAMIC TABLE.
-               var table = document.createElement("table");
-         
-               // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-         
-               var tr = table.insertRow(-1);                   // TABLE ROW.
-         
-               for (var i = 0; i < col.length; i++) {
-                   var th = document.createElement("th");      // TABLE HEADER.
-                   th.innerHTML = col[i];
-                   tr.appendChild(th);
-               }
-         
-               // ADD JSON DATA TO THE TABLE AS ROWS.
-               for (var i = 0; i < myBooks.length; i++) {
-         
-                   tr = table.insertRow(-1);
-         
-                   for (var j = 0; j < col.length; j++) {
-                       var tabCell = tr.insertCell(-1);
-                       tabCell.innerHTML = myBooks[i][col[j]];
-                   }
-               }
-         
-               // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-               var divContainer = document.getElementById("displayTable");
-               divContainer.innerHTML = "";
-               divContainer.appendChild(table);
-           }
-      </script>
+     <script type="text/javascript" src="js/user.js"></script>
+
 </body>
 
 </html>

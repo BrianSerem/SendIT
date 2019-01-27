@@ -15,15 +15,16 @@ table {
 	padding-left: 50px;
 }
 th, td {
-	padding:5px 10px;
+	padding:8px 10px;
+
 }
 th {
 	color:#fff;
-	border-top:1px solid #222;
-	background-color:#2F2F2F;
+	border-top:3px solid white;
+	background-color:green;
 }
 td {
-	border-bottom:1px solid #f4f4f4;
+	border-bottom:3px solid green;
 }
 code, blockquote {
 	display:block;

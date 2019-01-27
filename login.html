@@ -39,42 +39,12 @@
     <form method="post">
         <input type="text" name="u" placeholder="Username" required="required" id = "username" />
         <input type="password" name="p" id = "password" placeholder="Password" required="required" />
-        <button type="submit" onclick="logIn()"  class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large" id="login">Let me in.</button>
     </form>
     <div id="response">Enter your username and password to signin </div>
     <a href="signup.html">Your first time? Sigun up here</a>
 </div>
-<script>
-    function logIn() {
-        // getting the form values
-        let username = document.getElementById("username").value;
-        let password = document.getElementById("password").value;
-        let login_url = "https://sendit123.herokuapp.com/api/v2/auth/login";
-        let login_data = {
-            username : username,
-            password : password
-        }
-        // sending data to our end point
-        fetch(login_url, {
-            method: 'POST',
-            body: JSON.stringify(login_data),
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(response => { document.getElementById("response").innerHTML = (response.message)
-            /*if(response.status === "success"){
-                window.localStorage.setItem('token' , response.data.token)
-                window.localStorage.setItem('name' , response.data.name)
-                window.location.href='userdashboard.html';
-            } else {
-                document.getElementById("response").innerHTML = (response.message)
-            }*/
-        })
-        .catch(error => alert("Sorry, We may be having a problem establishing connection"));
-}
-</script>
+
     <div id ="footer">
 
 <!-- <div id="copyright1">
@@ -82,5 +52,6 @@
 </div>
 </div>
 </div>
+<script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>
