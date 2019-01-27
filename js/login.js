@@ -6,7 +6,7 @@ document.getElementById("login").addEventListener("click", logIn)
         // getting the form values
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
-        let login_url = "https://sendit123.herokuapp.com/api/v2/auth/login";
+        let login_url = "http://127.0.0.1:5000/api/v2/auth/login";
         let login_data = {
             username : username,
             password : password

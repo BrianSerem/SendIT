@@ -8,7 +8,7 @@
       let weight = document.getElementById("weight").value;
       let origin = document.getElementById("origin").value;
       let destination = document.getElementById("destination").value;
-      let createparcel_url = "https://sendit123.herokuapp.com/api/v2/parcels";
+      let createparcel_url = "http://127.0.0.1:5000/api/v2/parcels";
       let parcel_data = {
             name : description,
             weight : weight,
@@ -44,7 +44,7 @@
 
 function getAllUserParcels(){
 
-    let getalluseparcelsurl = `https://sendit123.herokuapp.com/api/v2/users/${localStorage.user_id}/parcels`
+    let getalluseparcelsurl = `http://127.0.0.1:5000/api/v2/users/${localStorage.user_id}/parcels`
 
     fetch(getalluseparcelsurl,{
         method:"GET",
