@@ -6,7 +6,7 @@ document.getElementById("signup").addEventListener("click",signUp);
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         let password1 = document.getElementById("password1").value;
-        let signup_url = "http://127.0.0.1:5000/api/v2/auth/signup";
+        let signup_url = "https://sendit123.herokuapp.com/api/v2/auth/signup";
         // Checking if the password and confirmation password is same
         if(password != password1){
             alert("password does not match")

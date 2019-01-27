@@ -6,7 +6,7 @@ document.getElementById("login").addEventListener("click", logIn)
         // getting the form values
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
-        let login_url = "http://127.0.0.1:5000/api/v2/auth/login";
+        let login_url = "https://sendit123.herokuapp.com/api/v2/auth/login";
         let login_data = {
             username : username,
             password : password
@@ -24,13 +24,21 @@ document.getElementById("login").addEventListener("click", logIn)
         {
             if(response.status == "success")
             {
-                /*console.log(response)*/
+                console.log(response)
                 window.localStorage.setItem('token' , response.access_token)
                 window.localStorage.setItem('name' , username)
                 window.localStorage.setItem('loggedin', true)
                 window.localStorage.setItem('user_id', response.user_id)
-                window.location.href='userdashboard.html';
+                window.localStorage.setItem('role',response.role)
+                window.localStorage.setItem('email',response.email)
                 document.getElementById("response").innerHTML = "Logging you in..."
+                console.log(response)
+                if(response.role=="customer"){
+                window.location.href='userdashboard.html';}
+                else{
+                    window.location.href='admindashboard.html'
+                }
+                
             
             } 
             else

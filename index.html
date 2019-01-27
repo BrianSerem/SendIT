@@ -20,12 +20,11 @@
             <h1><a href="index.html"><img src="images/senditlogo/senditfav.png"></a></h1>
         </div>
         <div id="menu">
-            <ul>
+            <ul id="unorderedlist">
                 <li class="current_page_item"><a id="nav_home" href="#" accesskey="1" title="">HOME</a></li>
-                <li><a id="nav_login" href="login.html" accesskey="2" title="">Log In</a></li>
-                <li><a id="nav_signup" href="signup.html" accesskey="3" title="">Register</a></li>
+                <li id="nav_login"><a  href="login.html" accesskey="2" title="">Log In</a></li>
+                <li id="nav_signup"><a href="signup.html" accesskey="3" title="">Register</a></li>
                 <li><a id="nav_about" href="about.html" accesskey="4" title="">About Us</a></li>
-                <li><a id="nav_admindashboard" href="admindashboard.html" accesskey="5" title="">Admin Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -90,32 +89,9 @@
 </div>
 </div>
 <script>
-    console.log(localStorage.loggedin);
 
-    document.getElementById("yourdashboard").addEventListener("click",referUser);
-    document.getElementById("yourdashboard1").addEventListener("click",referUser1);
-
-    function referUser(){
-    if (localStorage.loggedin === true){
-        window.location.href = 'userdashboard.html';
-        console.log(localStorage.loggedin);
-    }
-    else{
-        window.location.href = 'userdashboard.html';
-        console.log(localStorage.loggedin);
-
-    }
-}
-function referUser1(){
-    if (localStorage.loggedin === true){
-        window.location.href = "userdashboard.html";
-    }
-    else{
-        window.location.href = "login.html";
-
-    }
-}
 </script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/nav_links.js"></script>
 </body>
 </html>
