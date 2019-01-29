@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+
 	changeNavLinks(); 
 	changeUsername();
   
@@ -6,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function changeUsername(){
 	document.getElementById("username1").innerHTML=localStorage.name;
 }
+
 
 function removeElement(elementId) {
     // Removes an element from the document
