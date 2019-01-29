@@ -10,9 +10,14 @@
 
 /** element defaults **/
 table {
-	width:90%;
+	width:96%;
 	text-align:left;
 	padding-left: 50px;
+	padding-top:200px;
+	overflow-y:scroll;
+   height:500px;
+   display:block;
+   border-collapse: collapse;
 }
 th, td {
 	padding:8px 10px;
@@ -21,7 +26,7 @@ th, td {
 th {
 	color:#fff;
 	border-top:3px solid white;
-	background-color:green;
+	background-color:#3e706a
 }
 td {
 	border-bottom:3px solid green;

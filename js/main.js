@@ -29,7 +29,7 @@ function logOut(e){
 			alert(response.message)
 
 		} else {
-			alert(response.message);
+			alert("error logging you out!");
 			console.log(localStorage.loggedin)
 		}
 	})

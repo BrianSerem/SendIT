@@ -84,6 +84,7 @@ function getAllUsers(){
    	})
    	.then(res => res.json())
    	.then(response => {
+      console.log(response)
    		if(response.status==="success"){
    			let allparcels = response.message;
    			jsonToTable(allparcels);
@@ -108,6 +109,7 @@ function getAllUsers(){
   })
   .then(res => res.json())
   .then(response => {
+    console.log(response)
     if(response.status === 'success'){
       let specificparcels = response.message;
       jsonToTable(specificparcels);
