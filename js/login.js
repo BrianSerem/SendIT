@@ -33,10 +33,10 @@ document.getElementById("login").addEventListener("click", logIn)
                 window.localStorage.setItem('email',response.email)
                 document.getElementById("response").innerHTML = "Logging you in..."
                 console.log(response)
-                if(response.role=="customer"){
-                window.location.href='userdashboard.html';}
+                if(response.role==="customer"){
+                window.location.href='userdashboard.html'}
                 else{
-                    window.location.href='admindashboard.html'
+                    window.location.href ='admindashboard.html'
                 }
                 
             

@@ -1,8 +1,30 @@
-document.getElementById("allusers").addEventListener("click", getAllUsers);
-document.getElementById("allparcels").addEventListener("click", getAllParcels);
-document.getElementById("deliveredparcels").addEventListener("click", getDeliveredParcels);
 
+document.addEventListener("DOMContentLoaded", function() {
+    /*document.getElementById("yourdashboard").addEventListener("click", referUser)*/
+    document.getElementById("logout").addEventListener("click",logOut) 
+    document.getElementById("username").innerHTML = localStorage.name
+    checkIfLoggedIn();
+})
 
+function checkIfLoggedIn(){
+    console.log(localStorage.role)
+    if (localStorage.loggedin === "true") {
+        console.log("you are logged in, no problems")
+    } else {
+        window.location.href = 'login.html'
+    }
+}
+
+let not_found_user_data = [{
+  "id":"notfound",
+  "name":"notfound",
+  "origin":"notfound",
+  "destination":"notfound",
+  "weight":"notfound",
+  "price":"notfound",
+  "userid":localStorage.userid,
+
+}]
 document.getElementById("username").innerHTML = localStorage.name;
 
 function jsonToTable(data){
@@ -44,84 +66,79 @@ function jsonToTable(data){
                             divContainer.innerHTML = "";
                             divContainer.appendChild(table);
 }
-function getAllUsers(){
 
-	let getalldataurl = "https://sendit123.herokuapp.com/api/v2/users";
-
-	fetch(getalldataurl, {
-		method : "GET",
-		headers : {
-			'Content-Type': 'application/json',
-			'Authorization': 'Bearer '+localStorage.token}
-		})
-
-		.then(res => res.json())
-		.then(response => {
-                        if (response.status === "success") {
-                            console.log(response.message)
-                            let users = response.message;
-                            jsonToTable(users);
-                            
-                        }else{
-                        	console.log("error getting all users")
-                        }
-
-                          }
-                           )
-              
-                    .catch(error => console.log(error));
-            }
-
-   function getAllParcels(){
-   	let getallparcelsurl = "https://sendit123.herokuapp.com/api/v2/parcels"
-
-   	fetch(getallparcelsurl,{
-   		method : "GET",
-   		headers: {
-   			'Content-Type':'application/json',
-   			'Authorization':'Bearer '+localStorage.token
-   		}
-   	})
-   	.then(res => res.json())
-   	.then(response => {
-      console.log(response)
-   		if(response.status==="success"){
-   			let allparcels = response.message;
-   			jsonToTable(allparcels);
-   		}else{
-   			console.log("error getting all parcels");
-   		}
-   	})
-   }
- 
- function getSpecificParcels(status){
-
-  let statusdata = {status : status}
-  
-  let getspecificparclesurl = "https://sendit123.herokuapp.com/api/v2/parcels/status";
-  fetch(getspecificparclesurl,{
-    method: "POST",
-    body: JSON.stringify(statusdata),
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization':'Bearer '+localStorage.token
-    }
-  })
-  .then(res => res.json())
-  .then(response => {
-    console.log(response)
-    if(response.status === 'success'){
-      let specificparcels = response.message;
-      jsonToTable(specificparcels);
-    }else{
-      
-      document.getElementById("Table").innerHTML = "HAAHAHAHHAHAHAHAHAHA NO ORDERS FOUND!!!!!!!!!!!"
-    }
-  })
-
-
- }
  function getDeliveredParcels(e){
   e.preventDefault();
   getSpecificParcels("delivered")
  }
+
+document.getElementById("alluserparcels").addEventListener("click", getAllUserParcels);
+
+
+
+function getAllUserParcels() {
+    let getuserparcelsurl = `https://sendit123.herokuapp.com/api/v2/users/${localStorage.user_id}/parcels`;
+    fetch(getuserparcelsurl, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.token
+        }
+    })
+
+    .then(res => res.json())
+    .then(response => {
+            console.log(response)
+            if (response.status === 'success') {
+                console.log(response)
+                allusersparcels = response.message
+                jsonToTable(allusersparcels)
+            } else {
+                jsonToTable(not_found_user_data)
+            }
+        })
+        .catch(error => console.log(error))
+
+
+}
+
+function logOut(e){
+  e.preventDefault();
+
+  let logouturl = "https://sendit123.herokuapp.com/api/v2/auth/logout";
+  fetch(logouturl,{
+    method : "POST",
+    headers : {
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+
+    
+  })
+  .then(res => res.json())
+  .then(response =>{if (response.status = "success") {
+      window.localStorage.setItem('loggedin', false)
+      window.location.href = 'index.html';
+      console.log(localStorage.loggedin)
+      
+
+    } else {
+      alert("error logging you out!");
+      console.log(localStorage.loggedin)
+    }
+  })
+  .catch(error => console.log(error));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

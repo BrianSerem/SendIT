@@ -69,52 +69,44 @@
             <div class="job">CUSTOMER</div>
             
             <div class="actions">
-                <button class="btn">Change Username</button>
-                <button class="btn">Change email</button>
-                <button class="btn">Change password</button>
+                <button class="btn">Change Profile Info</button>
+                <button class="btn">Close Account</button>
             </div>
         </div>
         
           <div class="stats">
             <div class="box1">
-                <span class="value">523</span>
-                <span class="parameter">Posts</span>
+                <span id="allparcelsnum"class="value">523</span>
+                <span class="parameter">All Parcels</span>
             </div>
             <div class="box1">
-                <span class="value">1387</span>
-                <span class="parameter">Likes</span>
+                <span id="deliveredparcelsnum"class="value">1387</span>
+                <span class="parameter">Delivered Parcels</span>
             </div>
             <div class="box1">
-                <span class="value">146</span>
-                <span class="parameter">Follower</span>
+                <span id="movingparcelsnum"class="value">146</span>
+                <span class="parameter">Parcels in Transit</span>
             </div>
         </div>
         <div class="stats">
             <div class="box1">
-                <span class="value">523</span>
-                <span class="parameter">Posts</span>
+                <span id="pendingparcelsnum"class="value">523</span>
+                <span class="parameter">Pending Parcels</span>
             </div>
             <div class="box1">
-                <span class="value">1387</span>
-                <span class="parameter">Likes</span>
+                <span id="cancelledparcelsnum"class="value">146</span>
+                <span class="parameter">Cancelled Parcels</span>
             </div>
             <div class="box1">
-                <span class="value">146</span>
-                <span class="parameter">Follower</span>
+                <span class="totalspentnum">1387</span>
+                <span class="parameter">Total amount spent</span>
             </div>
+            
         </div>
         <div class="profile">
                 <div class="actions">
-                <button class="btn">Follow</button>
-                <button class="btn">Message</button>
-                <button class="btn">Follow</button>
-            </div>
-          </div>
-        <div class="profile">
-                <div class="actions">
-                <button class="btn">Follow</button>
-                <button class="btn">Message</button>
-                <button class="btn">Follow</button>
+                <button class="btn">Cancel an order</button>
+                <button class="btn">Change destination</button>
             </div>
           </div>
 
@@ -127,13 +119,8 @@
             </span>
             </div>
           </section>
-          <script>
-            console.log(localStorage.email);
-            document.getElementById("username1").innerHTML = localStorage.name;
-            document.getElementById("useremail").innerHTML = localStorage.email;
-          </script>
-     <script type="text/javascript" src="js/user.js"></script>
-     <script type="text/javascript" src="js/main.js"></script>
+     <script type"text/javascript" src="js/user.js"></script>
+     <script type"text/javascript" src="js/user.js"></script>
   
 
 </body>

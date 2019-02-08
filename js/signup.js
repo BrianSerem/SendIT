@@ -33,6 +33,7 @@ document.getElementById("signup").addEventListener("click",signUp);
                 window.localStorage.setItem('name' , username);
                 window.localStorage.setItem('token' , response.access_token);
                 window.localStorage.setItem('user_id', response.user_id);
+                window.localStorage.setItem('email', response.email)
                 window.localStorage.setItem('loggedin',true);
                 window.location.href='userdashboard.html';
             } else {
